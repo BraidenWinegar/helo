@@ -35,6 +35,6 @@ app.post('/auth/logout', authCtrl.logout)
 app.post('/auth/user', authCtrl.getUser)
 
 // /// main contrioller enpoints
-// app.put('/api/balance',  mainCtrl.updateBalance)
+app.get('/api/posts',ctrl.getPosts)
 
 app.listen(SERVER_PORT, () => console.log(`Server on ${SERVER_PORT}`))

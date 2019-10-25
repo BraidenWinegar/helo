@@ -1,4 +1,5 @@
 import React, {Component} from 'react'
+import Axios from 'axios';
 
 
 class Dashboard extends Component {
@@ -20,18 +21,35 @@ class Dashboard extends Component {
     }
 
     componentDidMount() {
-
+        this.getAllPosts()
     }
 
     getAllPosts = () => {
+        this.getAllPosts()
+        Axios.get('/api/posts').then(res => {
+            this.setState({
+                posts: res.data
+            })
+        })
+        .catch(err => console.log(err))
+    }
 
+    reset = () => {
+        this.getAllPosts()
+        this.setStates({
+            search: ''
+        })
     }
 
     search = () => {
-        
+        this.setState({
+            posts: this.state.posts.filter(this.state.search)
+        })
     }
 
     render(){
+
+        this.state.posts.map((e, i) =>)
 
         return(
             <div>
